@@ -6,7 +6,7 @@ source("/Users/Jason/Documents/GitHub/finreportr/R/ReportPeriod.R")
 source("/Users/Jason/Documents/GitHub/finreportr/R/GetAccessionNo.R")
 source("/Users/Jason/Documents/GitHub/finreportr/R/CompanyInfo.R")
 source("/Users/Jason/Documents/GitHub/finreportr/R/GetBalanceSheet.R")
-source("/Users/Jason/Documents/GitHub/finreportr/R/get_income.R")
+source("/Users/Jason/Documents/GitHub/finreportr/R/GetIncome.R")
 source("/Users/Jason/Documents/GitHub/finreportr/R/getURL.R")
 source("/Users/Jason/Documents/GitHub/finreportr/R/utils.R")
 
