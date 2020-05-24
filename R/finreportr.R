@@ -1,3 +1,14 @@
+
+#'@importFrom curl
+#'@importFrom dplyr arrange filter mutate select
+#'@importFrom httr GET 
+#'@importFrom rvest html_nodes html_text
+#'@importFrom tibble tibble
+#'@importFrom XBRL xbrlDoAll
+#'@importFrom xml2 read_html
+
+
+
 #' Standard Industrial Classification Code List
 #' 
 #' A dataset containing SIC codes and industries that they represent
