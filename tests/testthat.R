@@ -1,4 +1,4 @@
 library(testthat)
-library(finreportr)
+library(finreportjasonr)
 
-test_check("finreportr")
+test_check("finreportjasonr")
