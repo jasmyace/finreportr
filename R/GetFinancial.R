@@ -25,13 +25,13 @@ GetFinancial <- function(statement.type, symbol, year) {
      
   # Get Role ID from Instance Document
   role.df <- instFile$role %>%
-    dplyr::filter(toupper(description) %in% statement.type)
+    dplyr::filter(toupper(.data$description) %in% statement.type)
 
   role.id <- as.character(role.df$roleId)
 
   # Create statement template from Presentation Linkbase
   statement.skeleton <- instFile$presentation %>%
-    dplyr::filter(roleId == role.id)
+    dplyr::filter(.data$roleId == role.id)
 
   rowid <- c(1:nrow(statement.skeleton))
   statement.skeleton <- dplyr::mutate(statement.skeleton, rowid = rowid)
@@ -39,7 +39,7 @@ GetFinancial <- function(statement.type, symbol, year) {
   # Merge with Label Linkbase
   statement <- statement.skeleton %>% 
     dplyr::left_join(instFile$label, by=c("toElementId"="elementId")) %>%
-    dplyr::filter(labelRole == "http://www.xbrl.org/2003/role/label") %>% 
+    dplyr::filter(.data$labelRole == "http://www.xbrl.org/2003/role/label") %>% 
     dplyr::left_join(instFile$fact, by=c("toElementId"="elementId")) %>%   # Fact Linkbase
     dplyr::left_join(instFile$context, by=c("contextId")) %>%              # Context Linkbase
     dplyr::arrange(rowid)

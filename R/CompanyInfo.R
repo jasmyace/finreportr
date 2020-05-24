@@ -52,7 +52,7 @@ CompanyInfo <- function(symbol) {
   }
      
   # Acquire fiscal year end
-  company.details <- ExtractInfo(".identInfo")
+  company.details <- ExtractInfo(search.result, ".identInfo")
      
   fiscal.year.end <- gsub("^.*Fiscal Year End: ", "", company.details) %>%
     substr(1,4)
