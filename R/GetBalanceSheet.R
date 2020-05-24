@@ -28,7 +28,8 @@ GetBalanceSheet <- function(symbol, year) {
                                   "CONSOLIDATED STATEMENT OF FINANCIAL POSITION", 
                                   "CONSOLIDATED STATEMENTS OF FINANCIAL POSITION",
                                   "BALANCE SHEETS",
-                                  "CONSOLIDATED FINANCIAL POSITION")
+                                  "CONSOLIDATED FINANCIAL POSITION",
+                                  "CONSOLIDATED BALANCE SHEETS (in thousands, except share data)")
      
   GetFinancial(balance.sheet.descriptions, symbol, year)
 }
