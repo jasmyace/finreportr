@@ -1,8 +1,9 @@
 # Function to acquire Instance Document URL
-GetURL <- function(symbol, year) {
+GetURL <- function(symbol, year, type) {
      
  # symbol <- "AAPL"
  # year <- 2016
+ # type <- "10-K"
  
   lower.symbol <- tolower(symbol)
   
@@ -15,16 +16,12 @@ GetURL <- function(symbol, year) {
   report.period <- ReportPeriod(symbol, CIK, accession.no, accession.no.raw)
   report.period <- gsub("-", "" , report.period)
   
-  FilingsonEdgar <- edgarWebR::company_filings(x = symbol)#, type = "10-K")
-  DocumentsonEdgar <-  edgarWebR::filing_documents(x = FilingsonEdgar$href[1])  # this varies. ?
+  FilingsonEdgar <- edgarWebR::company_filings(x = symbol, type = "10-K")
+  findCorrectYear <- which(lubridate::year(as.Date(FilingsonEdgar$accepted_date)) == as.character(year))  # assumes i'll only ever find one.
+  DocumentsonEdgar <-  edgarWebR::filing_documents(x = FilingsonEdgar$href[findCorrectYear])  
   inst.url <- DocumentsonEdgar[DocumentsonEdgar[5] == 'XML', 4]
   
   # inst.url <- paste0("https://www.sec.gov/Archives/edgar/data/", CIK, "/", 
   #                    accession.no, "/", lower.symbol, "-", report.period, ".xml")
   return(inst.url)
 }
-
-
-# current 2016 - "https://www.sec.gov/Archives/edgar/data/320193/000162828016020309/aapl-20160924.xml"
-# current 2018 - "https://www.sec.gov/Archives/edgar/data/320193/000032019318000145/aapl-20180929.xml"
-# forreal - "https://www.sec.gov/Archives/edgar/data/320193/000032019319000119/0000320193-19-000119-index.htm"
