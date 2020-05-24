@@ -12,6 +12,7 @@ Description: Download and display company financial data from the U.S. Securitie
     for more information.
 Depends: R (>= 2.10)
 Imports: dplyr, 
+    edgarWebR, 
     httr, 
     rvest, 
     tibble, 
