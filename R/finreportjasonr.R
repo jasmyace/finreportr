@@ -2,7 +2,6 @@
 #'@importFrom dplyr arrange filter mutate select
 #'@importFrom edgarWebR company_filings filing_documents
 #'@importFrom httr GET 
-#'@importFrom lubridate year 
 #'@importFrom rvest html_nodes html_text
 #'@importFrom tibble tibble
 #'@importFrom XBRL xbrlDoAll
