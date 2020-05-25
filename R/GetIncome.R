@@ -29,8 +29,10 @@ GetIncome <- function(symbol, year, annual, quarter) {
      
   # symbol <- "AAPL"
   # year <- 2016
+  # annual <- TRUE
+  # quarter <- TRUE
      
-  income.descriptions <- c("CONSOLIDATED STATEMENTS OF INCOME", 
+  income.descriptions.a <- c("CONSOLIDATED STATEMENTS OF INCOME", 
                            "CONSOLIDATED STATEMENT OF INCOME", 
                            "CONSOLIDATED STATEMENTS OF OPERATIONS", 
                            "CONSOLIDATED STATEMENT OF OPERATIONS", 
@@ -39,6 +41,10 @@ GetIncome <- function(symbol, year, annual, quarter) {
                            "INCOME STATEMENTS", 
                            "CONSOLIDATED RESULTS OF OPERATIONS",
                            "CONSOLIDATED STATEMENTS OF OPERATIONS")
+  
+  income.descriptions.q <- c("CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS")   # just add condensed to all these?
+  
+  income.descriptions <- c(income.descriptions.a, income.descriptions.q)
      
   GetFinancial(income.descriptions, symbol, year, annual, quarter)
 }
