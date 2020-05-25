@@ -15,7 +15,9 @@ GetURL <- function(symbol, year, annual, quarter) {
   CIK <- as.numeric(CIK$CIK)
   
   report.period <- ReportPeriod(symbol, CIK, accession.no, accession.no.raw)
-  report.period <- gsub("-", "" , report.period)
+  report.period2 <- gsub("-", "" , report.period)
+  names(report.period2) <- names(report.period)
+  report.period <- report.period2
   
   if(year >= 2019){
     FilingsonEdgar <- edgarWebR::company_filings(x = symbol, type = "10-K")
@@ -24,6 +26,7 @@ GetURL <- function(symbol, year, annual, quarter) {
     inst.url <- DocumentsonEdgar[DocumentsonEdgar[5] == 'XML', 4]
   } else {
     inst.url <- paste0("https://www.sec.gov/Archives/edgar/data/", CIK, "/", accession.no, "/", lower.symbol, "-", report.period, ".xml")
+    names(inst.url) <- names(report.period)
   }
   return(inst.url)
 }
