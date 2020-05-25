@@ -13,13 +13,19 @@
 #' @param year A numeric vector specifying the year during which the annual
 #'   report was filed.
 #'   
+#' @param annual A logical vector indicating if annual reports should be pulled.
+#'   \code{annual = TRUE} by default.
+#'
+#' @param quarter A logical vector indicating if quarterly reports should be
+#'   pulled. \code{quarter = TRUE} by default.
+#'   
 #' @examples 
 #' \dontrun{
 #' GetIncome("FB", 2016)
 #' }
 
 
-GetIncome <- function(symbol, year) {
+GetIncome <- function(symbol, year, annual, quarter) {
      
   # symbol <- "AAPL"
   # year <- 2016
@@ -34,5 +40,5 @@ GetIncome <- function(symbol, year) {
                            "CONSOLIDATED RESULTS OF OPERATIONS",
                            "CONSOLIDATED STATEMENTS OF OPERATIONS")
      
-  GetFinancial(income.descriptions, symbol, year)
+  GetFinancial(income.descriptions, symbol, year, annual, quarter)
 }

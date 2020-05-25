@@ -4,7 +4,7 @@
 \alias{GetBalanceSheet}
 \title{Acquire balance sheet.}
 \usage{
-GetBalanceSheet(symbol, year)
+GetBalanceSheet(symbol, year, annual, quarter)
 }
 \arguments{
 \item{symbol}{A character vector specifying the stock symbol of the company
@@ -12,6 +12,12 @@ of interest.}
 
 \item{year}{A numeric vector specifying the year during which the annual
 report was filed.}
+
+\item{annual}{A logical vector indicating if annual reports should be pulled.
+\code{annual = TRUE} by default.}
+
+\item{quarter}{A logical vector indicating if quarterly reports should be
+pulled. \code{quarter = TRUE} by default.}
 }
 \description{
 Extracts and displays balance sheet from the annual report of a

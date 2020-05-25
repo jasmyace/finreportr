@@ -1,11 +1,11 @@
 
-GetFinancial <- function(statement.type, symbol, year) {
+GetFinancial <- function(statement.type, symbol, year, annual, quarter) {
         
   # statement.type <- cash.flow.descriptions
   # symbol <- "AAPL"
   # year <- 2016
 
-  inst.url <- GetURL(symbol, year)
+  inst.url <- GetURL(symbol, year, annual, quarter)
      
   # Check if url exits
   check <- tryCatch(is.list(httr::GET(inst.url)), error = function(e) {return(FALSE)})

@@ -1,12 +1,12 @@
 # Function to acquire Instance Document URL
-GetURL <- function(symbol, year) {
+GetURL <- function(symbol, year, annual, quarter) {
      
  # symbol <- "AAPL"
  # year <- 2014
  
   lower.symbol <- tolower(symbol)
   
-  accession.no.raw <- GetAccessionNo(symbol, year, foreign = FALSE)
+  accession.no.raw <- GetAccessionNo(symbol, year, annual, quarter)
   accession.no <- gsub("-", "" , accession.no.raw)
   
   CIK <- CompanyInfo(symbol)

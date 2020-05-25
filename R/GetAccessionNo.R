@@ -1,4 +1,4 @@
-GetAccessionNo <- function(symbol, year, annual = TRUE, quarter = TRUE) {
+GetAccessionNo <- function(symbol, year, annual=TRUE, quarter=TRUE) {
   
   # symbol <- "AAPL" 
   # year <- 2016
