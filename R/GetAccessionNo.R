@@ -2,7 +2,8 @@ GetAccessionNo <- function(symbol, year, annual=TRUE, quarter=TRUE) {
   
   # symbol <- "AAPL" 
   # year <- 2016
-  # foreign <- FALSE
+  # annual <- TRUE
+  # quarter <- TRUE
      
   year.char <- as.character(year)
   
@@ -14,11 +15,11 @@ GetAccessionNo <- function(symbol, year, annual=TRUE, quarter=TRUE) {
   
   accession.no.raw <- reports.df %>% 
        dplyr::select(.data$accession.no) %>%
-       as.character()
+       dplyr::pull()
   
   # Error message for function
-  if(accession.no.raw == "character(0)") {
-       stop("no filings available for given year")
+  if(length(accession.no.raw) == 0) {
+    stop("no filings available for given year")
   }
   
   return(accession.no.raw)

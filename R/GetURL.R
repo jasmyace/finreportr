@@ -1,8 +1,10 @@
 # Function to acquire Instance Document URL
 GetURL <- function(symbol, year, annual, quarter) {
      
- # symbol <- "AAPL"
- # year <- 2014
+  # symbol <- "AAPL"
+  # year <- 2014
+  # annual <- TRUE
+  # quarter <- TRUE
  
   lower.symbol <- tolower(symbol)
   
