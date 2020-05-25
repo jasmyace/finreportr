@@ -17,6 +17,9 @@ GetAccessionNo <- function(symbol, year, annual=TRUE, quarter=TRUE) {
        dplyr::select(.data$accession.no) %>%
        dplyr::pull()
   
+  # I need to be able to track which is the annual.  
+  names(accession.no.raw) <- reports.df$filing.name
+  
   # Error message for function
   if(length(accession.no.raw) == 0) {
     stop("no filings available for given year")
