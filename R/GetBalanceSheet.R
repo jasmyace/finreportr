@@ -29,6 +29,8 @@ GetBalanceSheet <- function(symbol, year, annual, quarter) {
   # symbol <- "AAPL"
   # year <- 2006
      
+  stopifnot(!(annual == FALSE & quarter == FALSE))
+  
   balance.sheet.descriptions <- c("CONSOLIDATED BALANCE SHEET", 
                                   "CONSOLIDATED BALANCE SHEETS", 
                                   "CONSOLIDATED STATEMENT OF FINANCIAL POSITION", 

@@ -32,6 +32,8 @@ GetIncome <- function(symbol, year, annual, quarter) {
   # annual <- TRUE
   # quarter <- TRUE
      
+  stopifnot(!(annual == FALSE & quarter == FALSE))
+  
   income.descriptions.a <- c("CONSOLIDATED STATEMENTS OF INCOME", 
                            "CONSOLIDATED STATEMENT OF INCOME", 
                            "CONSOLIDATED STATEMENTS OF OPERATIONS", 

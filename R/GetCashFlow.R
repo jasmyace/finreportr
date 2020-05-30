@@ -29,6 +29,8 @@ GetCashFlow <- function(symbol, year, annual, quarter) {
   # symbol <- "AAPL"
   # year <- 2018
      
+  stopifnot(!(annual == FALSE & quarter == FALSE))
+  
   cash.flow.descriptions <- c("CONSOLIDATED STATEMENT OF CASH FLOWS", 
                               "CONSOLIDATED STATEMENTS OF CASH FLOWS",
                               "CASH FLOWS STATEMENTS",
